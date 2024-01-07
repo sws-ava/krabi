@@ -6,7 +6,7 @@
 
 @section('banner')
     <section class="section-top-50 section-bottom-66 section-lg-top-160 section-lg-bottom-160 inset-left-15 inset-right-15"
-             style="background-image: url('/images/main_images/novosti.jpg');     background-position-x: 50%;
+             style="background-image: url({{asset('/images/main_images/novosti.jpg')}});     background-position-x: 50%;
         padding-top: 15%;
         padding-bottom: 15%;
         background-position-y: 50%;"

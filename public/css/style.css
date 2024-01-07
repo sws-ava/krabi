@@ -644,8 +644,8 @@ ul.rest-menu ul li {
 }
 
 .container ul li ul li {
-	
-} 
+
+}
 
 .myrow {
 	    display: flex;
@@ -14642,8 +14642,8 @@ fieldset[disabled] .btn-google-plus {
 
 @font-face {
   font-family: "Material Design Icons";
-  src: url("/fonts/materialdesignicons-webfont.eot?v=1.4.57");
-  src: url("/fonts/materialdesignicons-webfont.eot?#iefix&v=1.4.57") format("embedded-opentype"), url("/fonts/materialdesignicons-webfont.woff2?v=1.4.57") format("woff2"), url("/fonts/materialdesignicons-webfont.woff?v=1.4.57") format("woff"), url("/fonts/materialdesignicons-webfont.ttf?v=1.4.57") format("truetype"), url("/fonts/materialdesignicons-webfont.svg?v=1.4.57#materialdesigniconsregular") format("svg");
+  src: url("../fonts/materialdesignicons-webfont.eot?v=1.4.57");
+  src: url("../fonts/materialdesignicons-webfont.eot?#iefix&v=1.4.57") format("embedded-opentype"), url("../fonts/materialdesignicons-webfont.woff2?v=1.4.57") format("woff2"), url("../fonts/materialdesignicons-webfont.woff?v=1.4.57") format("woff"), url("../fonts/materialdesignicons-webfont.ttf?v=1.4.57") format("truetype"), url("../fonts/materialdesignicons-webfont.svg?v=1.4.57#materialdesigniconsregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -35318,7 +35318,7 @@ html:not(.lt-ie10) .not-animated {
   }
 }
 
-/* 
+/*
  *  Owl Carousel - Animate Plugin
  */
 .owl-carousel .animated {
@@ -35359,7 +35359,7 @@ html:not(.lt-ie10) .not-animated {
   }
 }
 
-/* 
+/*
  * 	Owl Carousel - Auto Height Plugin
  */
 .owl-height {
@@ -35370,7 +35370,7 @@ html:not(.lt-ie10) .not-animated {
   transition: height 500ms ease-in-out;
 }
 
-/* 
+/*
  *  Core Owl Carousel CSS File
  */
 .owl-carousel {
@@ -35471,7 +35471,7 @@ html:not(.lt-ie10) .not-animated {
   display: block;
 }
 
-/* 
+/*
  * 	Owl Carousel - Lazy Load Plugin
  */
 .owl-carousel .owl-item .owl-lazy {
@@ -35483,7 +35483,7 @@ html:not(.lt-ie10) .not-animated {
   transition: opacity 400ms ease;
 }
 
-/* 
+/*
  * 	Owl Carousel - Video Plugin
  */
 .owl-carousel .owl-video-wrapper {
@@ -35957,8 +35957,8 @@ html:not(.lt-ie10) .not-animated {
     top: 6;
     content: "";
     display: inline-block;
-    background-image: url("/images/logo.png");
-    background-repeat: no-repeat;
+    background-image: url("../images/logo.png");
+background-repeat: no-repeat;
     background-position: center;
     min-height: 150px;
 	background-size: contain;
@@ -36000,7 +36000,7 @@ html:not(.lt-ie10) .not-animated {
 	}
 @media (min-width: 768px) {
 	.little-logo, .little-logo img {
-		
+
 		display: none;
 	}
   .desktop .rd-navbar-brand .brand-name:before {
@@ -44028,7 +44028,7 @@ a.pswp__share--download:hover {
     width: 70%;
     border-radius: 20px;
     margin-bottom: 20px;
-	
+
 }
 
 
@@ -44042,29 +44042,29 @@ a.pswp__share--download:hover {
     margin: 10px 0 10px 0;
     font-size: 17px;
 }
-	
+
 
 .menu_all .item_holder .price_weight{
     display: flex;
-    justify-content: space-evenly;	
+    justify-content: space-evenly;
 	align-items: flex-end;
 }
 
 .menu_all .item_holder .price_weight span{
-	
+
 }
 
 .menu_all .item_holder .price_weight span.price{
 	font-size: 18px;
     font-weight: 700;
-    color: #fff;	
+    color: #fff;
 }
 
 @media (max-width: 400px) {
 	.menu_all .item_holder .image_holder .image {
 		width: 100%;
-	}	
-	
+	}
+
 	.menu_all .item_holder {
 		margin-bottom: 50px;
 	}

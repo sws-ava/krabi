@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="cell-sm-6">
-                <div class="img-wrap-1"><img src="/images/cont.jpg">
+                <div class="img-wrap-1"><img src="{{asset('/images/cont.jpg')}}">
                 </div>
             </div>
             <div class="cell-xs-12 offset-top-42">

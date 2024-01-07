@@ -79,7 +79,7 @@
                                 class="little-logo"
                             >
 							<span>
-								<img src="/images/logo-mini.png">
+								<img src="{{asset('/images/logo-mini.png')}}">
 							</span>
                             </a>
 

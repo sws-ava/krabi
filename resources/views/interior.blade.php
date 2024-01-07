@@ -6,7 +6,7 @@
 
 @section('banner')
     <section class="section-top-50 section-bottom-66 section-lg-top-160 section-lg-bottom-160 inset-left-15 inset-right-15"
-             style="background-image: url('/images/main_images/interer.jpg');     background-position-x: 50%;
+             style="background-image: url({{asset('/images/main_images/interer.jpg')}});     background-position-x: 50%;
         padding-top: 15%;
         padding-bottom: 15%;
         background-position-y: 50%;"
@@ -30,8 +30,9 @@
                 @foreach($images as $item)
                     <div class="isotope-item cell-xs-6 cell-sm-6 cell-md-3">
                         <div class="thumbnail-gallery">
-                            <a href="/{{$item->path}}" data-photo-swipe-item="" data-size="800x534">
-                                <img src="/{{$item->path}}" alt="">
+                            <a href="{{asset('storage/'.$item->path)}}" data-photo-swipe-item="" data-size="800x534">
+                                <img src="{{asset('storage/'.$item->path)}}" alt="">
+{{--                                <img src="/{{$item->path}}" alt="">--}}
                                 <span class="overlay"></span>
                             </a>
                         </div>
