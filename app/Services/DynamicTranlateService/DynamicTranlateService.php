@@ -51,6 +51,9 @@ class DynamicTranlateService
         $current_locale = App::getLocale();
 
         $static = $ru[0];
+        $static->ourMenu = 'Наше меню';
+        $static->interior = 'Интерьер';
+        $static->lookAll = 'Посмотреть все';
         $static->siteName = "Krabi - Thai & Japanese | Кафе Краби - тайская и японская кухня в Одессе. Доставка суши, WOK";
         $static->newsTitle = "Новости";
         $static->salesTitle = "Акции";
@@ -78,6 +81,9 @@ class DynamicTranlateService
         $static->orderGet = 'Спасибо! Ваш заказ принят!';
         if($current_locale === 'ua'){
             $static = $ua[0];
+            $static->ourMenu = 'Наше меню';
+            $static->interior = "Інтер'єр";
+            $static->lookAll = 'ПОДИВИТИСЬ ВСЕ';
             $static->siteName = 'Krabi - Thai & Japanese | Кафе Крабі - тайська та японська кухня в Одесі. Доставка суші, WOK';
             $static->newsTitle = 'Новини';
             $static->salesTitle = 'Акції';

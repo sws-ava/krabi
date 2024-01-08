@@ -149,8 +149,16 @@
 <!-- Java script-->
 <script type="text/javascript" src="{{asset('/js/core.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/script.js')}}"></script>
+<script type="text/javascript" src="{{asset('/js/shop.js')}}"></script>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#phone").inputmask({"mask": "+38 (999) 999-99-99"});
+    });
+</script>
 
 <script defer src="{{asset('/js/jquery.zoom.js')}}"></script>
 

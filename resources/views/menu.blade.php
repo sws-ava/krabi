@@ -50,7 +50,7 @@
                                                 {{ $goodItem->title }} {{ $goodItem->weight }} {{ $goodItem->weightKind }}
                                             </span>
                                             <span
-                                                onclick="addToCart({{ $goodItem->id }})"
+                                                onclick="addToCart({{ $goodItem->id }}, {{ $goodItem->price }}, '{{ $goodItem->title }} {{ $goodItem->weight }} {{ $goodItem->weightKind }}')"
                                                 class="price"
                                             >
                                                 {{ $goodItem->price }}

@@ -1,7 +1,9 @@
 
 <a
+    href="{{ LaravelLocalization::localizeUrl('/cart') }}"
     href="/cart"
     class="cartBlock"
+    style="display: none"
 >
     <i
         style="width: 20px; height: 20px;"
@@ -9,7 +11,7 @@
         aria-hidden="true">
     </i>
     <div class="nums">
-        <div><span>123</span> грн</div>
+        <div><span id="cartBlockSum">123</span> грн</div>
     </div>
 </a>
 

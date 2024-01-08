@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartController;
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Admin\Goods;
 use App\Models\Admin\GoodsItems;
 use App\Models\Admin\GoodsCats;
+//use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+//use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +52,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/aktsii', [PageController::class, 'sale']);
     Route::get('/novosti', [PageController::class, 'news']);
     Route::get('/cart', [CartController::class, 'index']);
+//
+    Route::post('/order-create', [OrderController::class, 'order_accepted'])->name('order.create');
 
 
 
