@@ -98,7 +98,7 @@
                     <div class="col-md-2 mt-4 mb-4">
                         <div  class="block-holder1">
                             <div class="image-holder1">
-                                <img src="/storage/{{$photo->path}}">
+                                <img src="{{asset('storage/'.$photo->path)}}">
                             </div>
                         </div>
                         <div style="text-align: center; font-size: 15px; overflow: hidden" title="/storage/{{$photo->path}}" alt="/storage/{{$photo->path}}">

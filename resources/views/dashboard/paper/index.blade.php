@@ -27,7 +27,7 @@
                 <div class="col-lg-3 mb-4">
                 <div  class="block-holder">
                     <div class="image-holder">
-                        <img src="/storage/{{$photo->path}}">
+                        <img src="{{asset('storage/'.$photo->path)}}">
                     </div>
                 </div>
 

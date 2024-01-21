@@ -26,7 +26,7 @@
                 <div class="col-md-4 col-lg-3 mb-4 mt-4" >
                     <div  class="block-holder">
                         <div class="image-holder">
-                            <img src="/storage/{{$photo->path}}">
+                            <img src="{{asset('storage/'.$photo->path)}}">
                         </div>
                     </div>
                     <div style="text-align: center; font-size: 15px; overflow: hidden" title="/storage/{{$photo->path}}" alt="/storage/{{$photo->path}}">

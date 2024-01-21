@@ -35,7 +35,7 @@
                     </a>
                 </div>
                 <div class="form-group mt-2">
-                    @if($cat->show === 1)
+                    @if($cat->show == 1)
                         <a href="{{route('category.show_category', [$cat->id, 0])}}"
                             class="btn btn-sm btn-danger"
                            style="color: #fff!important;"
@@ -43,7 +43,7 @@
                             Скрыть категорию
 
                         </a>
-                    @elseif($cat->show === 0)
+                    @elseif($cat->show == 0)
                         <a href="{{route('category.show_category', [$cat->id, 1])}}"
                             class="btn btn-sm btn-success"
                            style="color: #fff!important;"

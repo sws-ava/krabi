@@ -23,7 +23,7 @@
         <div class="panel-group menu_all" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="range">
                 @foreach($cats as $cat)
-                    @if($cat->show === 1)
+                    @if($cat->show == 1)
                         <div class="cell-sm-12">
                     <div class="" role="tab" id="heading-{{$cat->id}}">
                         <h2 class="">
@@ -36,7 +36,7 @@
                         <div class="range">
                             @foreach($cat->goods as $good)
 
-                                @if($good->show === 1)
+                                @if($good->show == 1)
                                     <div class="cell-sm-6 cell-md-4 item_holder">
                                     <div class="image_holder">
                                         @if($good->picture)
@@ -48,7 +48,7 @@
                                     <p class="description">{{ $good->desc }}</p>
 
                                     @foreach($good->goodsItems as $goodItem)
-                                        @if($goodItem->show === 1)
+                                        @if($goodItem->show == 1)
                                             <div class="price_weight text_left" style="justify-content: space-between; align-items: center;">
                                                 <span style="font-size: 12px; text-align: left;padding-right: 20px;">
                                                     {{ $goodItem->title }} {{ $goodItem->weight }} {{ $goodItem->weightKind }}
@@ -82,8 +82,8 @@
                 @foreach($paper_menu as $pmenu)
                         <div class="menudiv col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <span class="zoom" id="ex{{ $loop->index + 1 }}" style="position: relative; overflow: hidden;">
-                                <img src="storage/{{$pmenu->path}}" width="100%" alt="">
-                            <img role="presentation" src="storage/{{$pmenu->path}}" class="zoomImg" style="position: absolute; top: -128.095px; left: -152.937px; opacity: 0; width: 636px; height: 1026px; border: none; max-width: none; max-height: none;"></span>
+                                <img src="{{asset('storage/'.$pmenu->path)}}" width="100%" alt="">
+                            <img role="presentation" src="{{asset('storage/'.$pmenu->path)}}" class="zoomImg" style="position: absolute; top: -128.095px; left: -152.937px; opacity: 0; width: 636px; height: 1026px; border: none; max-width: none; max-height: none;"></span>
                         </div>
                 @endforeach
             </div>
