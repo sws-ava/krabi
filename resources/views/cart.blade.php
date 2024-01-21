@@ -67,14 +67,34 @@
                             <label for="" class="text-left">
                                 {{ $translates['orderPersons']}}
                             </label>
+                            <i
+                                onclick="personsHandler('minus')"
+                                style="width: 20px; height: 20px;"
+                                class="icons fa-icon fa fa-minus"
+                                aria-hidden="true">
+                            </i>
                             <input
+                                required
+                                id="persons"
                                 name="persons"
-                                v-model="formData.persons"
                                 type="number"
                                 value="1"
                                 min="1"
                                 class="form-control"
                             >
+                            <style>
+                                .stepper-arrow.up,
+                                .stepper-arrow.down {
+                                    display: none;
+                                }
+
+                            </style>
+                            <i
+                                onclick="personsHandler('plus')"
+                                style="width: 20px; height: 20px;"
+                                class="icons fa-icon fa fa-plus"
+                                aria-hidden="true">
+                            </i>
                         </div>
                         <div class="cell-sm-12 cell-md-8">
                             <label for="" class="text-left">

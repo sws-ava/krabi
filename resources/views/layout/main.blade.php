@@ -206,9 +206,13 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        var visited = $.cookie("visited")
-        if (visited == null) {
-            $.cookie('visited', 'yes', { expires: 1, domain: 'sushi-krabi.od.ua', path: '/' });
+        let isUa = window.location.href.includes('/ua/')
+        let visited = $.cookie("visited")
+        if(!isUa){
+            if (!visited) {
+                $.cookie('visited', '1', { expires: 365, path: '/' });
+                window.location.href = '/ua'
+            }
         }
     });
 </script>

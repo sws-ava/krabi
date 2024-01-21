@@ -18,12 +18,19 @@
 @endsection
 
 @section('content')
+
+    @if($translates['showWarning'])
+        <section class="section-top-70 section-bottom-70">
+            <div class="shell">
+                {!! $translates['warning'] !!}
+                <hr class="hr-gray offset-top-50">
+            </div>
+        </section>
+    @endif
+
     {!! $page->content !!}
 
     <main class="page-content">
-
-
-
         <section class="section-bottom-70">
             <div class="shell">
                 <hr class="hr-gray offset-top-50">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin\Order;
 use App\Models\Admin\OrderItems;
 use App\Services\DynamicTranlateService\DynamicTranlateService;
+use App\Services\OrderService\OrderTgService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -33,6 +34,8 @@ class OrderController extends Controller
             $newItem->price = $item['price'];
             $newItem->save();
         }
+
+        OrderTgService::sendTgOrder($order->id);
 
         $translates = DynamicTranlateService::getDynamicTranslates();
         $navigation = DynamicTranlateService::getNavigation();

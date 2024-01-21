@@ -48,6 +48,35 @@ class MenuService
         return $cats;
     }
 
+    public static function getCategory($id)
+    {
+        $current_locale = App::getLocale();
+        $item = GoodsCats::find($id);
+        $item->title = $item->title_ru;
+        $item->description = $item->description_ru;
+        $item->content = $item->content_ru;
+
+        if($current_locale === 'ua') {
+            if($item->title_ua){
+                $item->title = $item->title_ua;
+            }else{
+                $item->title = $item->title_ru;
+            }
+            if($item->description_ua){
+                $item->description = $item->description_ua;
+            }else{
+                $item->description = $item->description_ru;
+            }
+            if($item->content_ua){
+                $item->content = $item->content_ua;
+            }else{
+                $item->content = $item->content_ru;
+            }
+        }
+        $item->goods = self::getGoodsByCat($item->id);
+        return $item;
+    }
+
     public static function getGoodsByCat($catId)
     {
         $current_locale = App::getLocale();
@@ -99,5 +128,41 @@ class MenuService
             }
         }
         return $items;
+    }
+
+
+
+    public static function getGoodItem($id)
+    {
+        $current_locale = App::getLocale();
+        $item = Goods::find($id);
+        $item->title = $item->title_ru;
+        $item->description = $item->description_ru;
+        $item->desc = $item->desc_ru;
+        $item->content = $item->content_ru;
+        if($current_locale === 'ua') {
+            if($item->title_ua){
+                $item->title = $item->title_ua;
+            }else{
+                $item->title = $item->title_ru;
+            }
+            if($item->description_ua){
+                $item->description = $item->description_ua;
+            }else{
+                $item->description = $item->description_ru;
+            }
+            if($item->content_ua){
+                $item->content = $item->content_ua;
+            }else{
+                $item->content = $item->content_ru;
+            }
+            if($item->desc_ua){
+                $item->desc = $item->desc_ua;
+            }else{
+                $item->desc = $item->desc_ru;
+            }
+        }
+        $item->goodsItems = self::getGoodsItemsByGoods($item->id);
+        return $item;
     }
 }

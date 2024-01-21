@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class InteriorController extends Controller
 {
-    
+
     public function getPhotosInterior(){
         $photos = Interior::orderBy('order', 'asc')->get();
         return $photos;
@@ -56,8 +56,5 @@ class InteriorController extends Controller
         $photo->path = $path;
         $photo->order = $countPhotos + 1;
         $photo->save();
-
-
-
     }
 }

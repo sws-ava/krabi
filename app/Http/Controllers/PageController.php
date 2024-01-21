@@ -5,6 +5,7 @@ use App\Models\Admin\Gallery;
 use App\Models\Admin\Interior;
 use App\Models\Admin\News;
 use App\Models\Admin\Page;
+use App\Models\Admin\PaperMenu;
 use App\Services\DynamicTranlateService\DynamicTranlateService;
 use App\Services\MenuService\MenuService;
 use App\Services\NewsService\NewsService;
@@ -29,10 +30,11 @@ class PageController extends Controller
     {
         $cats = MenuService::getCategories();
         $page = PageService::getPageContent(10);
+        $paper_menu = PaperMenu::orderBy('order')->get();
         $translates = DynamicTranlateService::getDynamicTranslates();
         $navigation = DynamicTranlateService::getNavigation();
 
-        return view('menu', compact('translates', 'navigation', 'page', 'cats'));
+        return view('menu', compact('translates', 'navigation', 'page', 'cats', 'paper_menu'));
     }
     public function delivery() : View
     {

@@ -239,3 +239,17 @@ function submitForm(){
         let cartList = localStorage.setItem('cartList', '[]')
     });
 }
+
+function personsHandler(flag){
+    let input = document.getElementById('persons')
+    let inputValue = Number(input.value)
+    if(flag === 'minus'){
+        if(inputValue > 1){
+            inputValue -= 1
+        }
+    }else if(flag === 'plus'){
+        inputValue += 1
+    }
+    input.value = inputValue
+}
+
