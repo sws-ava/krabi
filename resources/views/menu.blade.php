@@ -53,8 +53,16 @@
                                                 <span style="font-size: 12px; text-align: left;padding-right: 20px;">
                                                     {{ $goodItem->title }} {{ $goodItem->weight }} {{ $goodItem->weightKind }}
                                                 </span>
+                                                @php
+                                                    $title = '';
+                                                    if($good->title == $goodItem->title){
+                                                        $title = $good->title;
+                                                    }else{
+                                                        $title = $good->title . ' ' . $goodItem->title;
+                                                    }
+                                                @endphp
                                                 <span
-                                                    onclick="addToCart({{ $goodItem->id }}, {{ $goodItem->price }}, '{{ $goodItem->title }} {{ $goodItem->weight }} {{ $goodItem->weightKind }}')"
+                                                    onclick="addToCart({{ $goodItem->id }}, {{ $goodItem->price }}, '{{ $title }} {{ $goodItem->weight }} {{ $goodItem->weightKind }}')"
                                                     class="price"
                                                 >
                                                     {{ $goodItem->price }}
