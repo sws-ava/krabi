@@ -38,7 +38,7 @@ class PageController extends Controller
 
 
     // client
-    
+
     public function getMainPage(Request $request){
         // return 123;
         $page = Page::where('id', 1)->first();
@@ -71,7 +71,7 @@ class PageController extends Controller
         $page->save();
     }
 
-    
+
     public function getTranslateRu(){
         $main = Page::where('id', 1)->first();
         $main->title = $main->title_ru;
@@ -80,7 +80,7 @@ class PageController extends Controller
         $main->ourMenu = 'Наше меню';
         $main->interior = 'Интерьер';
         $main->lookAll = 'Посмотреть все';
-        
+
         $main->address = '';
         $main->phone1 = '(068) 168 96 95';
         $main->phone1full = '+380681689695';
@@ -115,23 +115,23 @@ class PageController extends Controller
         $static->orderEpmty = 'Список пуст';
         $static->toMenu = 'В меню';
         $static->orderGet = 'Спасибо! Ваш заказ принят!';
-        
-        
+
+
         $concept = Page::where('id', 2)->first();
         $concept->title = $concept->title_ru;
         $concept->content = $concept->content_ru;
         $concept->description = $concept->description_ru;
-        
+
         $contacts = Page::where('id', 3)->first();
         $contacts->title = $contacts->title_ru;
         $contacts->content = $contacts->content_ru;
         $contacts->description = $contacts->description_ru;
-        
+
         $delivery = Page::where('id', 4)->first();
         $delivery->title = $delivery->title_ru;
         $delivery->content = $delivery->content_ru;
         $delivery->description = $delivery->description_ru;
-        
+
 
         // Menu items
         $navigation = [
@@ -168,7 +168,7 @@ class PageController extends Controller
         $main->lookAll = 'ПОДИВИТИСЬ ВСЕ';
 
         $static = Blocks::where('locale', 'ua')->first();
-        
+
         $static->siteName = 'Krabi - Thai & Japanese | Кафе Крабі - тайська та японська кухня в Одесі. Доставка суші, WOK';
         $static->newsTitle = 'Новини';
         $static->salesTitle = 'Акції';
@@ -199,17 +199,17 @@ class PageController extends Controller
         $concept->title = $concept->title_ua;
         $concept->content = $concept->content_ua;
         $concept->description = $concept->description_ua;
-        
+
         $contacts = Page::where('id', 3)->first();
         $contacts->title = $contacts->title_ua;
         $contacts->content = $contacts->content_ua;
         $contacts->description = $contacts->description_ua;
-        
+
         $delivery = Page::where('id', 4)->first();
         $delivery->title = $delivery->title_ua;
         $delivery->content = $delivery->content_ua;
         $delivery->description = $delivery->description_ua;
-        
+
 
         // Menu items
         $navigation = [
@@ -312,7 +312,7 @@ class PageController extends Controller
         return $itemsToClient;
     }
 
-    
+
     public function setNewOrder(Request $request){
 
         $order = new Order();

@@ -67,7 +67,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/novosti', [PageController::class, 'news']);
     Route::get('/cart', [CartController::class, 'index']);
 //
-    Route::post('/order-create', [OrderController::class, 'order_accepted'])->name('order.create');
+    Route::get('/order-create', [OrderController::class, 'order_accepted'])->name('order.create');
 
 
 

@@ -78,7 +78,7 @@ class DynamicTranlateService
         $static->orderNow = 'Оформить заказ';
         $static->orderEpmty = 'Список пуст';
         $static->toMenu = 'В меню';
-        $static->orderGet = 'Спасибо! Ваш заказ принят!';
+        $static->orderGet = 'Спасибо за заказ! <br> Если его не подтвердили по Вашему телефону в течение 15 минут, <br> позвоните пожалуйста:';
         if($current_locale === 'ua'){
             $static = $ua[0];
             $static->ourMenu = 'Наше меню';
@@ -108,7 +108,7 @@ class DynamicTranlateService
             $static->orderNow = 'Оформити замовлення';
             $static->orderEpmty = 'Список порожній';
             $static->toMenu = 'До меню';
-            $static->orderGet = 'Дякуємо! Ваше замовлення прийнято!';
+            $static->orderGet = 'Дуже дякуємо за замовлення! <br> Якщо його не підтвердили за Вашим номером телефону протягом 15 хвилин, <br> зателефонуйте будь ласка:';
         }
 
 

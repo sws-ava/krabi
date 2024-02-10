@@ -10,17 +10,47 @@
 
     <div class="mb200">
         <div id="orderDone">
-            <div class="range" style="margin-top: 50px; margin-bottom: 50px;">
-                <h2 class="text-center" style="margin: 0 auto 50px;">
-                    {{ $translates['orderGet']}}
+            <div class="" style="margin-top: 50px; margin-bottom: 50px; padding-left: 10px;padding-right: 10px;">
+                <h2 class="text-center" style="display:block; margin: 0 auto 50px; max-width: 600px; width: 100%;">
+                    {!!  $translates['orderGet'] !!}
                 </h2>
+                <div class="text-center phone-holder">
+
+                    <a
+                        href="tel:{{ $translates['phone1full']}}"
+                        class="text-base"
+                    >
+                        {{ $translates['phone1']}}
+
+                    </a>
+                    <a
+                        href="tel:{{ $translates['phone2full']}}"
+                        class="text-base"
+                    >
+                        {{ $translates['phone2']}}
+
+                    </a>
+                </div>
+                <style>
+                    .phone-holder{
+                        margin: 40px auto 50px;
+                        max-width: 600px;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        font-size: 30px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                    }
+                </style>
             </div>
         </div>
     </div>
     <script>
-        setTimeout(()=>{
-            window.location.href = '{{ LaravelLocalization::localizeUrl('/menyu') }}';
-        }, 5000)
+        {{--setTimeout(()=>{--}}
+        {{--    window.location.href = '{{ LaravelLocalization::localizeUrl('/menyu') }}';--}}
+        {{--}, 5000)--}}
     </script>
     <style>
         .cartForm {
