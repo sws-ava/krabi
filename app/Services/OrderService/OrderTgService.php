@@ -21,18 +21,37 @@ class OrderTgService
     {
         $order = self::getOrder($id);
         $text = self::normalizeOrderToText($order);
-        $send = self::sendTgOrderHandler($text);
+        $send = self::sendTgOrderHandler($text, $order);
         return $send;
     }
-    public static function sendTgOrderHandler($textMessage)
+
+    public static function sendMsgErr($order){
+        $textMessage = urlencode('Новый заказ краби, но с ошибкой!');
+        $text = urlencode(self::normalizeOrderToText($order));
+        $token = env('TG_TOKEN');
+        $chat = env('TG_MASTER_CHAT');
+        $urlQuery = "https://api.telegram.org/bot". $token ."/sendMessage?chat_id=". $chat ."&text=" . $textMessage . ' ' . $text ;
+        file_get_contents($urlQuery);
+    }
+
+    public static function sendTgOrderHandler($textMessage, $order)
     {
+        $opts = [
+            "http" => [
+                "method" => "GET",
+                "header" => 'Content-Type: application/json; charset=utf-8'
+            ]
+        ];
+        $context = stream_context_create($opts);
+
         $textMessage = urlencode($textMessage);
         $token = env('TG_TOKEN');
-        $chats = env('TG_USERS');
-        $chats = explode(',', $chats);
-        foreach ($chats as $chat) {
-            $urlQuery = "https://api.telegram.org/bot". $token ."/sendMessage?chat_id=". $chat ."&text=" . $textMessage;
-            $result = file_get_contents($urlQuery);
+        $chat = env('TG_CHAT');
+        $urlQuery = "https://api.telegram.org/bot". $token ."/sendMessage?chat_id=". $chat ."&text=" . $textMessage;
+
+        $response = @file_get_contents($urlQuery, false, $context);
+        if(gettype($response) === 'boolean'){
+            self::sendMsgErr($order);
         }
     }
 
@@ -56,7 +75,7 @@ class OrderTgService
             if($item->full_title !== $item->title){
                 $textMessage .= $item->full_title;
             }
-            $textMessage .= $item->title.' '.$item->weight.' '.' '.$item->amount.'ед  '.$item->price.' грн';
+            $textMessage .= $item->title.' '.$item->weight.' '.$item->amount.'ед '.' '.$item->price.' грн';
             $textMessage .= "\n";
         }
         $textMessage .= "Итого: ".$order->total.' грн';
