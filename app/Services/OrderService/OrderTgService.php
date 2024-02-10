@@ -3,6 +3,7 @@
 namespace App\Services\OrderService;
 
 use App\Models\Admin\Goods;
+use App\Models\Admin\GoodsCats;
 use App\Models\Admin\GoodsItems;
 use App\Models\Admin\Order;
 use App\Models\Admin\OrderItems;
@@ -20,9 +21,9 @@ class OrderTgService
     public static function sendTgOrder($id)
     {
         $order = self::getOrder($id);
+//        return $order;
         $text = self::normalizeOrderToText($order);
-        $send = self::sendTgOrderHandler($text, $order);
-        return $send;
+        return self::sendTgOrderHandler($text, $order);
     }
 
     public static function sendMsgErr($order){
@@ -58,6 +59,7 @@ class OrderTgService
     public static function normalizeOrderToText($order){
         $textMessage = 'Новый заказ!';
         $textMessage .= "\n";
+        $textMessage .= "\n";
         $textMessage .= "Имя: ".$order->name;
         $textMessage .= "\n";
         $textMessage .= "Телефон: ".$order->phone;
@@ -70,14 +72,17 @@ class OrderTgService
             $textMessage .= "Комментарий: ".$order->comment;
             $textMessage .= "\n";
         }
+        $textMessage .= "\n";
 
         foreach ($order->items as $item) {
+            $textMessage .= $item->category . ': ';
             if($item->full_title !== $item->title){
                 $textMessage .= $item->full_title;
             }
-            $textMessage .= $item->title.' '.$item->weight.' '.$item->amount.'ед '.' '.$item->price.' грн';
+            $textMessage .= ' '. $item->title.' '.$item->weight.' '.$item->amount.'ед '.' '.$item->price.' грн';
             $textMessage .= "\n";
         }
+        $textMessage .= "\n";
         $textMessage .= "Итого: ".$order->total.' грн';
         return $textMessage;
     }
@@ -95,10 +100,8 @@ class OrderTgService
     public static function getOrder($id)
     {
         $order = Order::where('id', $id)->first();
-
         $order->items = OrderItems::where('order', $id)->get();
         $order->total = self::calcOrderTotal($order->items);
-
         $order->items = self::getOrderItemRelationships($order->items);
 
         return $order;
@@ -108,8 +111,10 @@ class OrderTgService
     {
         foreach ($items as $item) {
             $goodsItem = GoodsItems::where('id', $item->item)->first();
-            $pre_title = Goods::select('title_ru')->where('id',$goodsItem->item )->first();
-            $item->full_title = $pre_title->title_ru;
+            $good = Goods::select('title_ru', 'category')->where('id',$goodsItem->item )->first();
+            $goodsCat = GoodsCats::select('title_ru', 'id')->find($good->category);
+            $item->category = $goodsCat->title_ru;
+            $item->full_title = $good->title_ru;
             $item->title = $goodsItem->title_ru;
             $item->weight = $goodsItem->weight.' '.$goodsItem->weightKind;
         }

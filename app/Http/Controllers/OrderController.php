@@ -11,7 +11,7 @@ use Illuminate\View\View;
 
 class OrderController extends Controller
 {
-    public function order_accepted(Request $request)
+    public function order_create(Request $request)
     {
 
         $order = new Order();
@@ -35,7 +35,11 @@ class OrderController extends Controller
             $newItem->save();
         }
 
-        $resp = OrderTgService::sendTgOrder($order->id);
+        OrderTgService::sendTgOrder($order->id);
+        return redirect()->route('order.accepted');
+    }
+
+    public function order_accepted(){
         $translates = DynamicTranlateService::getDynamicTranslates();
         $navigation = DynamicTranlateService::getNavigation();
         return view('order_accepted', compact('translates', 'navigation'));
