@@ -84,6 +84,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
 
+
+
+// Catalog Settings No Middleware
+Route::get('/dashboard/catalog-settings/is-online-order/{flag}', [CatalogSettingsController::class, 'is_online_order'])->name('catalog_settings.is_online_order');
+
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index']);
 
@@ -127,9 +132,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/menu/goodsItem/bottom/{goods}/{order}', [AdminGoodsItemController::class, 'order_bottom'])->name('goodsItem.order_bottom');
     Route::get('/dashboard/menu/goodsItem/{id}/show/{show_flag}', [AdminGoodsItemController::class, 'show_item'])->name('goodsItem.show_item');
     Route::get('/dashboard/menu/goodsItem/remove/{id}', [AdminGoodsItemController::class, 'destroy2'])->name('goodsItem.remove');
-
-    // Catalog Settings
-    Route::get('/dashboard/catalog-settings/{flag}', [CatalogSettingsController::class, 'is_online_order'])->name('catalog_settings.is_online_order');
 
     // blocks
     Route::get('/dashboard/blocks', [AdminBlocksController::class, 'index']);
