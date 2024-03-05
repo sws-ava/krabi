@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CatalogSettingsController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
@@ -127,6 +128,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/menu/goodsItem/{id}/show/{show_flag}', [AdminGoodsItemController::class, 'show_item'])->name('goodsItem.show_item');
     Route::get('/dashboard/menu/goodsItem/remove/{id}', [AdminGoodsItemController::class, 'destroy2'])->name('goodsItem.remove');
 
+    // Catalog Settings
+    Route::get('/dashboard/catalog-settings/{flag}', [CatalogSettingsController::class, 'is_online_order'])->name('catalog_settings.is_online_order');
 
     // blocks
     Route::get('/dashboard/blocks', [AdminBlocksController::class, 'index']);

@@ -17,6 +17,15 @@
     </section>
 @endsection
 
+{{-- {{ asset('/images/logo.png') }}--}}
+{{--<img src="{{ asset('/images/logo.png') }}" alt="">--}}
+
+{{--<br><br>--}}
+{{--{{ asset('/storage/1/akka_spring_roll.jpg') }}--}}
+{{--<img src="{{ asset('/storage/1/akka_spring_roll.jpg') }}" alt="">--}}
+
+
+
 @section('content')
 
     @if($translates['showWarning'])

@@ -60,14 +60,23 @@
                                                     }else{
                                                         $title = $good->title . ' ' . $goodItem->title;
                                                     }
+
                                                 @endphp
-                                                <span
-                                                    onclick="addToCart({{ $goodItem->id }}, {{ $goodItem->price }}, '{{ $title }} {{ $goodItem->weight }} {{ $goodItem->weightKind }}')"
-                                                    class="price"
-                                                >
+                                                @if($catalog_settings->is_online_order)
+                                                    <span
+                                                        onclick="addToCart({{ $goodItem->id }}, {{ $goodItem->price }}, '{{ $title }} {{ $goodItem->weight }} {{ $goodItem->weightKind }}')"
+                                                        class="price"
+                                                    >
+                                                        {{ $goodItem->price }}
+                                                        <i class="fa-icon fa fa-cart-plus" aria-hidden="true"></i>
+                                                    </span>
+                                                @else
+                                                    <span
+                                                        class="price"
+                                                    >
                                                     {{ $goodItem->price }}
-                                                    <i class="fa-icon fa fa-cart-plus" aria-hidden="true"></i>
                                                 </span>
+                                                @endif
                                             </div>
                                         @endif
                                     @endforeach

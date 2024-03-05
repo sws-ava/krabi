@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Admin\CatalogSetting;
 use App\Models\Admin\Gallery;
 use App\Models\Admin\Interior;
 use App\Models\Admin\News;
@@ -28,13 +29,14 @@ class PageController extends Controller
     }
     public function menu()
     {
+        $catalog_settings = CatalogSetting::query()->find(1);
         $cats = MenuService::getCategories();
         $page = PageService::getPageContent(10);
         $paper_menu = PaperMenu::orderBy('order')->get();
         $translates = DynamicTranlateService::getDynamicTranslates();
         $navigation = DynamicTranlateService::getNavigation();
 
-        return view('menu', compact('translates', 'navigation', 'page', 'cats', 'paper_menu'));
+        return view('menu', compact('translates', 'navigation', 'page', 'cats', 'paper_menu', 'catalog_settings'));
     }
     public function delivery() : View
     {
